@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Custom markdown styling */
+        .markdown-body {
+            padding: 1rem;
+            color: #333;
+        }
+        .markdown-body h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+        .markdown-body h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        .markdown-body ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .markdown-body li {
+            margin-bottom: 0.5rem;
+        }
+        .markdown-body p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <!-- Extracted Data -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4">Extracted Data</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {% for key, value in extracted_data.items() %}
+                    <div class="border rounded p-4">
+                        <h3 class="font-semibold text-gray-600">{{ key }}</h3>
+                        <p class="mt-1">{{ value }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Gemini Summary -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4">Document Summary</h2>
+                <div id="markdownContent" class="markdown-body">
+                    Loading summary...
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="/" class="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200">
+                    Process Another Document
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parse and render markdown content
+        document.addEventListener('DOMContentLoaded', function() {
+            const markdownContent = document.getElementById('markdownContent');
+            const rawMarkdown = `{{ summary | safe }}`;
+            
+            // Configure marked options for better rendering
+            marked.setOptions({
+                breaks: true,
+                gfm: true
+            });
+            
+            // Render markdown
+            markdownContent.innerHTML = marked.parse(rawMarkdown);
+        });
+    </script>
+</body>
+</html>

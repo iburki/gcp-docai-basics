@@ -1,0 +1,179 @@
+/* static/style.css */
+:root {
+    --google-blue: #1a73e8;
+    --google-blue-hover: #1557b0;
+    --google-gray: #5f6368;
+    --google-red: #d93025;
+    --border-color: #dadce0;
+    --background: #f8f9fa;
+}
+
+body {
+    font-family: 'Google Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background);
+    color: var(--google-gray);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.upload-card {
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 
+                0 2px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+h1 {
+    font-size: 24px;
+    color: var(--google-gray);
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.upload-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.file-input-container {
+    margin-bottom: 20px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: var(--google-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.file-label:hover {
+    background-color: var(--google-blue-hover);
+}
+
+.supported-files {
+    color: var(--google-gray);
+    font-size: 13px;
+    margin: 15px 0;
+}
+
+.upload-button {
+    background-color: var(--google-blue);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Google Sans', Arial, sans-serif;
+    transition: background-color 0.2s;
+}
+
+.upload-button:hover {
+    background-color: var(--google-blue-hover);
+}
+
+.error-message {
+    background-color: #fce8e6;
+    color: var(--google-red);
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.results-container {
+    margin: 30px 0;
+}
+
+.result-item {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-type {
+    color: var(--google-blue);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.result-text {
+    color: var(--google-gray);
+}
+
+.back-button {
+    display: inline-block;
+    background-color: var(--google-blue);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.back-button:hover {
+    background-color: var(--google-blue-hover);
+}
+
+.no-results {
+    text-align: center;
+    color: var(--google-gray);
+    padding: 30px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    .upload-card {
+        padding: 20px;
+    }
+
+    .upload-area {
+        padding: 20px;
+    }
+}
+
+/* Custom styles for document processor */
+.markdown-body {
+    background-color: white;
+    padding: 1rem;
+}
+
+.file-drop-active {
+    border-color: #3B82F6 !important;
+    background-color: #EFF6FF !important;
+}
+
+/* Additional styling for drag and drop */
+.drag-over {
+    background-color: #F3F4F6;
+    border-color: #60A5FA;
+}
